@@ -1,6 +1,10 @@
 bank-service:
-  providers:
+  dataProviders:
     - name: provider1
       url: https://provider1.com/v1/api/account/validate
     - name: provider2
       url: https://provider2.com/v1/api/account/validate
+
+logging:
+  level:
+    org.springframework.web: DEBUG

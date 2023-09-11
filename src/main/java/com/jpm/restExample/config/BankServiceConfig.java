@@ -12,6 +12,7 @@ import java.util.List;
 public class BankServiceConfig {
 
 
+
     private List<DataProvider> dataProviders;
 
     public List<DataProvider> getDataProviders() {

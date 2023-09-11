@@ -18,8 +18,8 @@ public class BankAccountService {
     @Autowired
     private BankServiceConfig config;
 
-
-    DataProviderClient dataProviderClient;
+    @Autowired
+    private DataProviderClient dataProviderClient;
 
 
     public List<DataProvider> getDefaultDataProviders() {
@@ -52,7 +52,7 @@ public class BankAccountService {
         // Implement your validation logic here
         // Query data providers based on the 'providers' list
         // Return a BankAccountValidationResult object
-        List<Result> validationResults = null;
+        List<Result> validationResults = new ArrayList<>();
 
         for (DataProvider provider : providers) {
             String providerUrl = provider.getUrl();
@@ -60,6 +60,7 @@ public class BankAccountService {
 
             if (providerUrl != null) {
                  boolean validationResult = dataProviderClient.makeRequestToProvider(providerUrl, accountNumber);
+                 //boolean validationResult = true;
                  Result result = new Result(providerName, validationResult);
                  validationResults.add(result);
             }
